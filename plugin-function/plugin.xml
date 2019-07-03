@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><plugin>
+    <id>com.fr.plugin.function.test</id>
+    <name><![CDATA[测试函数插件]]></name>
+    <active>yes</active>
+    <version>1.0</version>
+    <env-version>10.0</env-version>
+    <jartime>2018-07-31</jartime>
+    <vendor>author</vendor>
+    <description><![CDATA[可以把一组数组都求绝对值]]></description>
+    <change-notes><![CDATA[
+      [2018-08-01]修改一点问题。<br/>
+      [2018-07-31]初始化插件。<br/>
+    ]]></change-notes>
+    <extra-core>
+        <FunctionDefineProvider class="com.fr.plugin.MyAbs" name="MyAbs" description="求绝对值，支持数组。"/>
+        <LocaleFinder class="com.fr.plugin.MyLocaleFinder"/>
+    </extra-core>
+    <function-recorder class="com.fr.plugin.MyAbs"/>
+</plugin>

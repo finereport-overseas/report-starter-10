@@ -1,0 +1,227 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.fr.plugin</groupId>
+    <artifactId>starter</artifactId>
+    <version>10.0</version>
+    <packaging>pom</packaging>
+    <properties>
+        <common-version>10.0-RELEASE-SNAPSHOT</common-version>
+        <web-inf-bucket>${project.basedir}/webroot/WEB-INF</web-inf-bucket>
+    </properties>
+    <modules>
+        <module>plugin-function</module>
+    </modules>
+    <dependencies>
+        <!-- core包 -->
+        <dependency>
+            <groupId>com.fr.third</groupId>
+            <artifactId>fine-third</artifactId>
+            <version>${common-version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.fr.activator</groupId>
+            <artifactId>fine-activator</artifactId>
+            <version>${common-version}</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.fr.core</groupId>
+            <artifactId>fine-core</artifactId>
+            <version>${common-version}</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.fr.webui</groupId>
+            <artifactId>fine-webui</artifactId>
+            <version>${common-version}</version>
+            <scope>compile</scope>
+        </dependency>
+        <!-- 数据源包 -->
+        <dependency>
+            <groupId>com.fr.datasource</groupId>
+            <artifactId>fine-datasource</artifactId>
+            <version>${common-version}</version>
+            <scope>compile</scope>
+        </dependency>
+        <!-- 决策平台包 -->
+        <dependency>
+            <groupId>com.fr.decision</groupId>
+            <artifactId>fine-decision</artifactId>
+            <version>${common-version}</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.fr.decision</groupId>
+            <artifactId>fine-decision-report</artifactId>
+            <version>${common-version}</version>
+            <scope>compile</scope>
+        </dependency>
+        <!-- 定时调度包 -->
+        <dependency>
+            <groupId>com.fr.schedule</groupId>
+            <artifactId>fine-schedule</artifactId>
+            <version>${common-version}</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.fr.schedule</groupId>
+            <artifactId>fine-schedule-report</artifactId>
+            <version>${common-version}</version>
+            <scope>compile</scope>
+        </dependency>
+
+        <!-- 智能日志包 -->
+        <dependency>
+            <groupId>com.fr.intelligence</groupId>
+            <artifactId>fine-swift</artifactId>
+            <version>${common-version}</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.fr.intelligence</groupId>
+            <artifactId>fine-accumulator</artifactId>
+            <version>${common-version}</version>
+            <scope>compile</scope>
+        </dependency>
+        <!-- 报表引擎包 -->
+        <dependency>
+            <groupId>com.fr.report</groupId>
+            <artifactId>fine-report-engine</artifactId>
+            <version>${common-version}</version>
+            <scope>compile</scope>
+        </dependency>
+        <!-- 设计器包 -->
+        <dependency>
+            <groupId>com.fr.report</groupId>
+            <artifactId>fine-report-designer</artifactId>
+            <version>${common-version}</version>
+            <scope>compile</scope>
+        </dependency>
+
+        <!-- 远程设计用包 -->
+        <dependency>
+            <groupId>io.socket</groupId>
+            <artifactId>socket.io-client</artifactId>
+            <version>0.7.0</version>
+            <scope>compile</scope>
+        </dependency>
+
+        <!-- AOP用包 -->
+        <dependency>
+            <groupId>org.aspectj</groupId>
+            <artifactId>aspectjrt</artifactId>
+            <version>1.6.9</version>
+            <scope>compile</scope>
+        </dependency>
+
+        <!-- 设计器调试用包 -->
+        <dependency>
+            <groupId>org.swingexplorer</groupId>
+            <artifactId>swexpl</artifactId>
+            <version>2.0</version>
+        </dependency>
+        <dependency>
+            <groupId>org.swingexplorer</groupId>
+            <artifactId>swag</artifactId>
+            <version>1.0</version>
+        </dependency>
+
+        <!-- tomcat包 -->
+        <dependency>
+            <groupId>org.apache.tomcat</groupId>
+            <artifactId>tomcat-catalina</artifactId>
+            <version>8.5.32</version>
+        </dependency>
+
+        <!-- mysql驱动 -->
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>5.1.44</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.fr.third</groupId>
+            <artifactId>jxbrowser</artifactId>
+            <version>6.23.1</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.fr.third</groupId>
+            <artifactId>jxbrowser-mac</artifactId>
+            <version>6.23.1</version>
+        </dependency>
+
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.12</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.easymock</groupId>
+            <artifactId>easymock</artifactId>
+            <version>3.5.1</version>
+            <scope>test</scope>
+        </dependency>
+
+    </dependencies>
+    <build>
+        <outputDirectory>${web-inf-bucket}/classes</outputDirectory>
+        <plugins>
+            <plugin>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.1</version>
+                <configuration>
+                    <source>1.6</source>
+                    <target>1.6</target>
+                    <!--不生成target/generated-sources/annotations-->
+                    <proc>none</proc>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-dependency-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>copy</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>copy-dependencies</goal>
+                        </goals>
+                        <configuration>
+                            <outputDirectory>
+                                ${project.basedir}/webroot/WEB-INF/lib
+                            </outputDirectory>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+    <repositories>
+        <repository>
+            <id>fanruan</id>
+            <name>fanruan</name>
+            <url>http://mvn.finedevelop.com/repository/maven-public/</url>
+            <snapshots>
+                <enabled>true</enabled>
+                <updatePolicy>always</updatePolicy>
+                <checksumPolicy>warn</checksumPolicy>
+            </snapshots>
+        </repository>
+    </repositories>
+    <pluginRepositories>
+        <pluginRepository>
+            <id>fanruan</id>
+            <name>fanruan</name>
+            <url>http://mvn.finedevelop.com/repository/maven-public/</url>
+            <snapshots>
+                <enabled>true</enabled>
+                <updatePolicy>always</updatePolicy>
+                <checksumPolicy>warn</checksumPolicy>
+            </snapshots>
+        </pluginRepository>
+    </pluginRepositories>
+</project>

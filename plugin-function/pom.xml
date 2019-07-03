@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>com.fr.plugin</groupId>
+        <artifactId>starter</artifactId>
+        <version>10.0</version>
+    </parent>
+    <packaging>jar</packaging>
+    <artifactId>plugin-function</artifactId>
+    <dependencies>
+        <dependency>
+            <groupId>com.fr.plugin</groupId>
+            <artifactId>gson</artifactId>
+            <version>1.0</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/gson-2.3.1.jar</systemPath>
+        </dependency>
+    </dependencies>
+    <build>
+        <!---如果要更改调试插件，改这里的配置就可以了-->
+        <outputDirectory>${project.basedir}/../webroot/WEB-INF/plugins/plugin-com.fr.plugin.function.test-1.0/classes</outputDirectory>
+    </build>
+</project>
