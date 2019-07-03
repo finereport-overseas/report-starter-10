@@ -11,6 +11,8 @@
 
 如果需要复制jar包到webroot/WEB-INF/lib下，可以执行命令：```mvn install```
 
+**注意：**该工程依赖的jar为私有maven服务器，注意不要删除pom.xml中的repositories。
+
 ## 启动应用程序
 
 ### 复制插件配置
