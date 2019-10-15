@@ -152,6 +152,12 @@
             <artifactId>jxbrowser-mac</artifactId>
             <version>6.23.1</version>
         </dependency>
+      
+        <dependency>
+            <groupId>com.fr.third</groupId>
+            <artifactId>jxbrowser-win64</artifactId>
+            <version>6.23.1</version>
+        </dependency>
 
         <dependency>
             <groupId>junit</groupId>
