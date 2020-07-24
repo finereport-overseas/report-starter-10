@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><plugin>
+    <id>com.fr.plugin.function.demo</id>
+    <name><![CDATA[HelloWorld]]></name>
+    <active>yes</active>
+    <version>1.0</version>
+    <env-version>10.0</env-version>
+    <jartime>2018-07-31</jartime>
+    <vendor>author</vendor>
+    <description><![CDATA[]]></description>
+    <change-notes><![CDATA[]]></change-notes>
+    <main-package>com.fr.plugin.function.demo</main-package>
+    <extra-core>
+        <FunctionDefineProvider class="com.fr.plugin.function.demo.HelloWorld" name="HelloWorld" description="First Plugin"/>
+    </extra-core>
+    <function-recorder class="com.fr.plugin.function.demo.HelloWorld"/>
+</plugin>

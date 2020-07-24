@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project basedir="." default="jar" name="plugin-function-demo">
+    <!-- JDK path，change it based on your own condition-->
+    <property name="jdk.home" value="C:\Program Files\Java\jdk1.8.0_181"/>
+    <property name="libs" value="${basedir}/lib"/>
+    <property name="dependenceLibs" value="${basedir}/dependence"/>
+    <property name="FRLibs" value="${basedir}/../webroot/WEB-INF/lib"/>
+
+    <property name="destLoc" value="."/>
+    <property name="classes" value="classes"/>
+    <xmlproperty file="${basedir}/plugin.xml"/>
+    <property name="current-version" value="${plugin.version}"/>
+    <property name="current-id" value="${plugin.id}"/>
+
+    <!-- Plugin version-->
+    <property name="plugin-version" value="${current-version}"/>
+    <!-- Plugin name-->
+    <property name="plugin-name" value="hello-world"/>
+    <property name="plugin-jar" value="fr-plugin-${plugin-name}-${plugin-version}.jar"/>
+    <target name="prepare">
+        <delete dir="${classes}"/>
+    </target>
+    <path id="compile.classpath">
+        <fileset dir="${FRLibs}">
+            <include name="**/*.jar"/>
+        </fileset>
+        <fileset dir="${libs}">
+            <include name="**/*.jar"/>
+        </fileset>
+        <fileset dir="${dependenceLibs}">
+            <include name="**/*.jar"/>
+        </fileset>
+    </path>
+    <patternset id="resources4Jar">
+        <exclude name="**/.settings/**"/>
+        <exclude name=".classpath"/>
+        <exclude name=".project"/>
+
+        <exclude name="**/*.java"/>
+        <exclude name="**/*.db"/>
+        <exclude name="**/*.g"/>
+        <exclude name="**/package.html"/>
+    </patternset>
+    <target name="copy_resources">
+        <echo message="copy images, JS, CSS, etc. from ${resources_from}"/>
+        <delete dir="tmp"/>
+        <copy todir="tmp">
+            <fileset dir="${resources_from}\src\main\java">
+                <patternset refid="resources4Jar"/>
+            </fileset>
+        </copy>
+        <copy todir="tmp">
+            <fileset dir="${resources_from}\src\main\resources">
+                <patternset refid="resources4Jar"/>
+            </fileset>
+        </copy>
+        <copy todir="${classes}">
+            <fileset dir="tmp"/>
+        </copy>
+        <delete dir="tmp"/>
+    </target>
+    <target name="compile_javas">
+        <echo message="compile .java under ${compile_files}"/>
+        <javac destdir="${classes}" debug="false" optimize="on" source="${source_jdk_version}"
+               target="${target_jdk_version}"
+               fork="true" memoryMaximumSize="512m" listfiles="false" srcdir="${basedir}"
+               executable="${compile_jdk_version}/bin/javac" includeantruntime="on">
+            <src path="${basedir}/src"/>
+            <exclude name="**/.svn/**"/>
+            <compilerarg line="-encoding UTF8 "/>
+            <classpath refid="compile.classpath"/>
+        </javac>
+        <taskdef name="pretreatment" classname="com.fr.plugin.pack.PluginPretreatmentTask">
+            <classpath refid="compile.classpath"/>
+        </taskdef>
+        <pretreatment baseDir="${basedir}"/>
+    </target>
+
+    <target name="jar_classes">
+        <echo message="JAR packaging:${jar_name}"/>
+        <delete file="${basedir}/${jar_name}"/>
+        <jar jarfile="${basedir}/${jar_name}">
+            <fileset dir="${classes}">
+            </fileset>
+        </jar>
+    </target>
+
+    <target name="super_jar" depends="prepare">
+        <antcall target="copy_resources">
+            <param name="resources_from" value="${basedir}"/>
+        </antcall>
+        <antcall target="compile_javas">
+            <param name="source_jdk_version" value="1.6"/>
+            <param name="target_jdk_version" value="1.6"/>
+            <param name="compile_jdk_version" value="${jdk.home}"/>
+            <param name="compile_files" value="${basedir}/src"/>
+        </antcall>
+        <echo message="compile plugin success!"/>
+
+        <antcall target="jar_classes">
+            <param name="jar_name" value="${plugin-jar}"/>
+        </antcall>
+        <delete dir="${classes}"/>
+    </target>
+
+    <target name="jar" depends="super_jar">
+        <antcall target="zip"/>
+    </target>
+
+    <target name="zip">
+        <property name="plugin-folder" value="fr-plugin-${plugin-name}-${plugin-version}"/>
+        <echo message="----------zip files----------"/>
+        <mkdir dir="${plugin-folder}"/>
+        <copy todir="${plugin-folder}">
+            <fileset dir=".">
+                <include name="*.jar"/>
+                <include name="plugin.xml"/>
+            </fileset>
+        </copy>
+        <copy todir="${plugin-folder}">
+            <fileset dir="${libs}">
+                <include name="**/*.jar"/>
+            </fileset>
+        </copy>
+        <zip destfile="${basedir}/${plugin-folder}.zip" basedir=".">
+            <include name="${plugin-folder}/*.jar"/>
+            <include name="${plugin-folder}/plugin.xml"/>
+        </zip>
+        <xmlproperty file="${basedir}/plugin.xml"/>
+        <!--
+        <move file="${plugin-folder}.zip" todir="${destLoc}/${plugin.name}"/>
+        -->
+        <delete dir="${plugin-folder}"/>
+        <delete file="${plugin-jar}" />
+        <!--<delete file="${basedir}/${plugin-folder}.zip" />-->
+    </target>
+</project>

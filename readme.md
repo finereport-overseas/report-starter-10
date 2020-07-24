@@ -1,17 +1,18 @@
-# 工程配置指南
+# Instruction
 
-## 安装maven
-用于构建开发工程，文档参考：http://wiki.jikexueyuan.com/project/maven/environment-setup.html
+## Install Maven
+To build the project.
 
 ## 安装ant
-用于构建插件安装包，文档参考：http://wiki.jikexueyuan.com/project/ant/environment-setup.html
+To build the plugin. For reference: http://doc.fanruan.com/display/VHD/1.+Installation+and+Configuration+of+Essential+Tools
 
 ## 配置开发工程
-直接使用IntelliJ IDEA打开这个目录即可。
+Use IntelliJ IDEA to open this folder.
 
-如果需要复制jar包到webroot/WEB-INF/lib下，可以执行命令：```mvn install```
+If you want to copy Jars into webroot/WEB-INF/lib, please run: ```mvn install```
 
-**注意：**该工程依赖的jar为私有maven服务器，注意不要删除pom.xml中的repositories。
+**Caution：**该工程依赖的jar为私有maven服务器，注意不要删除pom.xml中的repositories。
+**Caution：**该工程依赖的jar为私有maven服务器，注意不要删除pom.xml中的repositories。
 
 ## 启动应用程序
 
