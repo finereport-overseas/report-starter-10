@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?><plugin>
     <id>com.fr.plugin.tabledata.demo</id>
-    <name><![CDATA[HelloWorld]]></name>
+    <name><![CDATA[Dataset Demo]]></name>
     <active>yes</active>
     <version>1.0</version>
     <env-version>10.0</env-version>
