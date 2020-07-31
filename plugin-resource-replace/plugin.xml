@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><plugin>
+    <id>com.fr.plugin.resource.replace.demo</id>
+    <name><![CDATA[Resource Replace Demo]]></name>
+    <active>yes</active>
+    <version>1.0</version>
+    <env-version>10.0</env-version>
+    <jartime>2020-02-28</jartime>
+    <vendor>finereport-joe</vendor>
+    <description><![CDATA[Demo for Resource Replace]]></description>
+    <change-notes><![CDATA[]]></change-notes>
+    <main-package>com.fr.plugin.resource.replace.demo</main-package>
+    <extra-core>
+        <ResourcePathTransformer class="com.fr.plugin.resource.replace.demo.ResourceReplace"/>
+    </extra-core>
+    <function-recorder class="com.fr.plugin.resource.replace.demo.ResourceReplace"/>
+</plugin>
