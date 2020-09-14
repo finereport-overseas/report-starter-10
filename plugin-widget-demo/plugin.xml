@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><plugin>
+    <id>com.fr.plugin.widget.demo</id>
+    <name><![CDATA[Widget Demo]]></name>
+    <active>yes</active>
+    <version>1.0</version>
+    <env-version>10.0</env-version>
+    <jartime>2020-02-28</jartime>
+    <vendor>finereport-joe</vendor>
+    <description><![CDATA[Demo for creating widgets]]></description>
+    <change-notes><![CDATA[]]></change-notes>
+    <main-package>com.fr.plugin.widget.demo</main-package>
+    <extra-report>
+        <JavaScriptFileHandler class="com.fr.plugin.widget.demo.ReportJavaScriptFileHandler"/>
+    </extra-report>
+    <extra-designer>
+        <ParameterWidgetOptionProvider class="com.fr.plugin.widget.demo.para.DemoParaFormWidgetProvider"/>
+        <FormWidgetOptionProvider class="com.fr.plugin.widget.demo.para.DemoParaFormWidgetProvider"/>
+        <CellWidgetOptionProvider class="com.fr.plugin.widget.demo.cell.DemoCellWidgetOptionProvider"/>
+    </extra-designer>
+
+    <function-recorder class="com.fr.plugin.widget.demo.DemoWidget"/>
+</plugin>
