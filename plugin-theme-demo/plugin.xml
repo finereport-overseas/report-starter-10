@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><plugin>
+    <id>com.fr.plugin.theme.demo</id>
+    <name><![CDATA[Theme Demo]]></name>
+    <active>yes</active>
+    <version>1.0</version>
+    <env-version>10.0</env-version>
+    <jartime>2020-02-28</jartime>
+    <vendor>finereport-joe</vendor>
+    <description><![CDATA[Demo for a custom theme]]></description>
+    <change-notes><![CDATA[]]></change-notes>
+    <main-package>com.fr.plugin.theme.demo</main-package>
+    <extra-decision>
+        <ThemeVariousProvider class="com.fr.plugin.theme.demo.DemoTheme"/>
+    </extra-decision>
+    <function-recorder class="com.fr.plugin.theme.demo.DemoThemeAtom"/>
+</plugin>

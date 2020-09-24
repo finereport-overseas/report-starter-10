@@ -1,0 +1,7 @@
+.plugin-first-item-select {
+    background-color: rgba(50,150,245,0.5)
+}
+
+.plugin-first-item-unselect {
+    background-color: rgba(50,150,245,0.15)
+}
