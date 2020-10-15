@@ -1,14 +1,16 @@
-package com.fr.plugin.tabledata.demo;
+package com.fr.plugin.data.source.demo;
 
 import com.fr.base.TableData;
 import com.fr.design.data.tabledata.tabledatapane.AbstractTableDataPane;
-import com.fr.design.fun.impl.AbstractTableDataDefineProvider;
+import com.fr.design.fun.impl.AbstractServerTableDataDefineProvider;
+import com.fr.plugin.data.source.demo.core.DemoTableData;
+import com.fr.plugin.data.source.demo.ui.DemoTableDataPane;
 
 /**
  * @author Joe
  * Created by Joe on 7/24/2020
  */
-public class DemoTableDataBridge extends AbstractTableDataDefineProvider {
+public class DemoServerTableDataBridge extends AbstractServerTableDataDefineProvider {
     @Override
     public Class<? extends TableData> classForTableData() {
         return DemoTableData.class;
@@ -36,6 +38,6 @@ public class DemoTableDataBridge extends AbstractTableDataDefineProvider {
 
     @Override
     public String iconPathForTableData() {
-        return "/com/fr/plugin/tabledata/demo/demo.png";
+        return "/com/fr/plugin/data/source/demo/demo.png";
     }
 }
